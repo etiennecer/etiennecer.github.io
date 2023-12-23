@@ -27,6 +27,12 @@
             // Überprüfen, ob todofield.value null oder leer ist
             if (todofield.value === null || todofield.value.trim() === '') {
                 // Beendet die Funktion, wenn todofield.value null oder leer ist
+                //Fehlermeldung ausgeben
+                <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
+                    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">!</span>
+                    <span class="mdl-chip__text">Bitte füge erst eine ToDo hinzu!</span>
+                    <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
+                </span>
                 return;
             }
             list.innerHTML += `
