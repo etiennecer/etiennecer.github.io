@@ -23,6 +23,13 @@
     </style>
     <script>
         function addToDo(){
+            var todofield = document.getElementById('todofield');
+
+            // Überprüfen, ob todofield.value null oder leer ist
+            if (todofield.value === null || todofield.value.trim() === '') {
+                // Beendet die Funktion, wenn todofield.value null oder leer ist
+                return;
+            }
             list.innerHTML += `
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
