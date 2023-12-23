@@ -28,11 +28,11 @@
             if (todofield.value === null || todofield.value.trim() === '') {
                 // Beendet die Funktion, wenn todofield.value null oder leer ist
                 //Fehlermeldung ausgeben
-                <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
+                todoerror.innerHTML = `
                     <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">!</span>
                     <span class="mdl-chip__text">Bitte füge erst eine ToDo hinzu!</span>
                     <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
-                </span>
+                `;
                 return;
             }
             list.innerHTML += `
@@ -94,6 +94,11 @@
   <button type= "submit" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
     <i class="material-icons">add</i>
   </button>
+
+    <span class="mdl-chip mdl-chip--contact mdl-chip--deletable" id="todoerror">
+        
+    </span>
+    
 </form>
         <ul class="demo-list-control mdl-list" id="list">
           
