@@ -8,69 +8,61 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
+<body>
+
+<form onsubmit="event.preventDefault(); getUsername(); getPW(); verify();">
+    <!-- Benutzername Eingabefeld -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="loginusername">
+      <label class="mdl-textfield__label" for="loginusername">enter username</label>
+    </div>
+
+    <!-- Passwort Eingabefeld -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="password" id="loginpassword">
+      <label class="mdl-textfield__label" for="loginpassword">enter password</label>
+    </div>
+
+    <!-- Bestätigungsbutton -->
+    <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+      Confirm
+    </button>
+</form>
+
+<div id="linkContainer"></div>
 
 <script>
-
     const username = "max";
     const password = "passwort";
     let verifycounter = 0;
     
     function getUsername(){
-        var usernameinput = loginsite.getElementById("loginusername");
-        if(usernameinput != username){
+        var usernameinput = document.getElementById("loginusername").value;
+        if(usernameinput !== username){
             return;
         }
         verifycounter++;
     }
     
     function getPW(){
-        var pwinput = loginsite.getElementById("loginpassword");
-        if(pwinput != password){
+        var pwinput = document.getElementById("loginpassword").value;
+        if(pwinput !== password){
             return;
         }
         verifycounter++;
     }
 
     function verify(){
-        if(verifycounter!=2){
-            return;
+        if(verifycounter === 2){
+            var link = document.createElement('a');
+            link.className = 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored';
+            link.href = 'uebersicht.html';
+            link.textContent = 'WELCOME';
+            document.getElementById('linkContainer').appendChild(link);
         }
-        var link = document.createElement('a');
-        link.className = 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored';
-        link.href = 'uebersicht.html';
-        link.textContent = 'WELCOME';
-        document.getElementById('linkContainer').appendChild(link);
-        
+        verifycounter = 0; // Zurücksetzen des Zählers
     }
-    
 </script>
-    
-<body>
-    <!-- Textfield for username -->
 
-<form onsubmit="getUsername()">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="loginusername">
-      <label class="mdl-textfield__label" for="loginusername">enter username</label>
-    </div>
-  </form>
-
-  <!-- Textfield for password -->
-
-<form onsubmit="getPW()">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="loginpassword">
-      <label class="mdl-textfield__label" for="loginpassword">enter password</label>
-    </div>
-  </form>
-
-<!-- Flat button with ripple -->
-<button onsubmit="verify()" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-  Confirm
-</button>
-
-<!-- Colored raised button as href link-->
-<div id="linkContainer"></div>
-    
 </body>
 </html>
