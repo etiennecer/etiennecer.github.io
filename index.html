@@ -4,118 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
-    <style>
-
-        .page-content{
-            padding: 50px 100px;
-        }
-
-        .demo-list-control {
-            width: 300px;
-        }
-
-
-    </style>
-    <script>
-        function addToDo(){
-            var todofield = document.getElementById('todofield');
-
-            // Überprüfen, ob todofield.value null oder leer ist
-            if (todofield.value === null || todofield.value.trim() === '') {
-                // Beendet die Funktion, wenn todofield.value null oder leer ist
-                //Fehlermeldung ausgeben
-                todoerror.innerHTML = `
-                    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">!</span>
-                    <span class="mdl-chip__text">Bitte füge erst eine ToDo hinzu!</span>
-                    <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
-                    
-                    document.getElementById("todoerror").addEventListener("click", function() {
-                    
-                        var ToDoError = document.getElementById("todoerror");
-                        if (ToDoError) {
-                            ToDoError.remove(); // Entfernt das Textfeld
-                        }
-                    });
-
-                `;
-                return;
-            }
-            list.innerHTML += `
-              <li class="mdl-list__item">
-                <span class="mdl-list__item-primary-content">
-                  <i class="material-icons  mdl-list__item-avatar">assignment</i>
-                  ${todofield.value}
-                </span>
-                <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
-                    <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
-                  </label>
-                </span>
-              </li>
-            `;
-            todofield.value = '';
-        }
-    </script>
-    
 </head>
+
+<!-- Uses a transparent header that draws on top of the layout's background -->
+<style>
+.demo-layout-transparent {
+  background: url('https://images.app.goo.gl/N49JW8KS87ZgacZj8') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: 87% black;
+}
+</style>
+    
 <body>
-    <!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <!-- Title -->
-        <span class="mdl-layout-title">ToDo Liste</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation. We hide it in small screens. -->
-        <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
-      </div>
-    </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">ToDo Liste</span>
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Welcome</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
         <a class="mdl-navigation__link" href="">Link</a>
       </nav>
     </div>
-    <main class="mdl-layout__content">
-      <div class="page-content"><!-- Your content goes here --></div>
-        <!-- Textfield with Floating Label -->
-
-<form onsubmit="addToDo()">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="todofield">
-    <label class="mdl-textfield__label" for="todofield">ToDo schreiben</label>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Welcome</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
   </div>
-
-    <!-- FAB button with ripple -->
-  <button type= "submit" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-    <i class="material-icons">add</i>
+  <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+  <a class="mdl-navigation__link" href="login.html">Login</a>
   </button>
-
-    <!--<button id="deleteButton">Lösche die Meldung</button>-->
-    <!--test-->
-
-    <span class="mdl-chip mdl-chip--contact mdl-chip--deletable" id="todoerror">
-        
-    </span>
-    
-</form>
-        <ul class="demo-list-control mdl-list" id="list">
-          
-        </ul>
-    </main>
-  </div>
+  <main class="mdl-layout__content">
+  </main>
+</div>
 </body>
 </html>
