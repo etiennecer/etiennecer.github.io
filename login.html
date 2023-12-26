@@ -3,33 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loginsite</title>
+    <title>Loginsite</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
+    <style>
+        .page-content{
+            padding: 50px 100px;
+        }
+    </style>
 <body>
 
-<form onsubmit="event.preventDefault(); getUsername(); getPW(); verify();">
-    <!-- Benutzername Eingabefeld -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="loginusername">
-      <label class="mdl-textfield__label" for="loginusername">enter username</label>
+
+<!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Loginsite</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="index.html">Homepage</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+        <!-- Your content goes here -->
+        <form onsubmit="event.preventDefault(); getUsername(); getPW(); verify();">
+            <!-- Benutzername Eingabefeld -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="loginusername">
+              <label class="mdl-textfield__label" for="loginusername">enter username</label>
+            </div>
+
+            <!-- Passwort Eingabefeld -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="password" id="loginpassword">
+              <label class="mdl-textfield__label" for="loginpassword">enter password</label>
+            </div>
+
+            <!-- Bestätigungsbutton -->
+            <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+              Confirm
+            </button>
+        </form>
+
+        <div id="linkContainer"></div>
     </div>
+  </main>
+</div>
 
-    <!-- Passwort Eingabefeld -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="password" id="loginpassword">
-      <label class="mdl-textfield__label" for="loginpassword">enter password</label>
-    </div>
-
-    <!-- Bestätigungsbutton -->
-    <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-      Confirm
-    </button>
-</form>
-
-<div id="linkContainer"></div>
 
 <script>
     const username = "max";
