@@ -69,13 +69,15 @@
             <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
               Confirm
             </button>
+
+             <div id="linkContainer"></div>
         </form>
         </div>
 
         
 
 
-        <div id="linkContainer"></div>
+       
     </div>
   </main>
 </div>
@@ -105,7 +107,7 @@
     function verify(){
         if(verifycounter === 2){
             var link = document.createElement('a');
-            link.className = 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored';
+            link.className = 'mdl-button mdl-js-button mdl-button--raised';
             link.href = 'uebersicht.html';
             link.textContent = 'WELCOME';
             document.getElementById('linkContainer').appendChild(link);
