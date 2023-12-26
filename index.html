@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>homepage</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
@@ -25,6 +25,12 @@
             front-size: 19px;
             front-weight: bold;
         }
+        .demo-layout-transparent .mdl-layout__header {
+        background: rgba(0, 0, 0, 0.5); /* Schwarzer Hintergrund mit Transparenz */
+        border-radius: 10px; /* Abgerundete Ecken */
+        padding: 20px 0; /* Gleichmäßiger Abstand oben und unten */
+        box-sizing: border-box; /* Stellt sicher, dass Padding in der Höhe enthalten ist */
+    }
     </style>
 
 <!-- Uses a transparent header that draws on top of the layout's background -->
