@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loginsite</title>
+    <title>Loginsite</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-</head>
     <style>
         .page-content{
             padding: 50px 100px;
@@ -16,11 +15,6 @@
         .mdl-textfield .mdl-js-textfield .mdl-textfield--floating-label{
             padding: 25px;
         }
-    </style>
-
-    
-    <!-- Square card -->
-    <style>
         .demo-card-square.mdl-card {
             width: 400px;
             height: 400px;
@@ -34,93 +28,56 @@
             padding: 50px 100px;
         }
     </style>
-
+</head>
 <body>
-
-
-<!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Loginsite</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="index.html">Homepage</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content">
-        
-        <!-- Your content goes here -->
-        
-        <div class="demo-card-square mdl-card mdl-shadow--2dp">
-        <form onsubmit="event.preventDefault(); getUsername(); getPW(); verify();">
-            <!-- Benutzername Eingabefeld -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="loginusername">
-              <label class="mdl-textfield__label" for="loginusername">enter username</label>
-            </div>
-
-            <!-- Passwort Eingabefeld -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="password" id="loginpassword">
-              <label class="mdl-textfield__label" for="loginpassword">enter password</label>
-            </div>
-
-            <!-- Bestätigungsbutton -->
-            <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-              Confirm
-            </button>
-
-             <div id="linkContainer"></div>
-        </form>
-            <!-- Login Button (gespeert) -->
-            <button class="mdl-button mdl-js-button mdl-button--raised" id="loginbutton"disabled>
-              Login
-            </button>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Loginsite</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="index.html">Homepage</a>
+            </nav>
         </div>
-
-        
-
-
-       
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <form onsubmit="event.preventDefault(); verify();">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="loginusername">
+                            <label class="mdl-textfield__label" for="loginusername">enter username</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="password" id="loginpassword">
+                            <label class="mdl-textfield__label" for="loginpassword">enter password</label>
+                        </div>
+                        <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                            Confirm
+                        </button>
+                    </form>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="loginbutton" disabled>
+                        Login
+                    </button>
+                    <div id="linkContainer"></div>
+                </div>
+            </div>
+        </main>
     </div>
-  </main>
-</div>
-
-
-<script>
-    const username = "max";
-    const password = "passwort";
-    let verifycounter = 0;
-    
-    function getUsername(){
-        var usernameinput = document.getElementById("loginusername").value;
-        if(usernameinput !== username){
-            return;
+    <script>
+        const username = "max";
+        const password = "passwort";
+        
+        function verify(){
+            var usernameinput = document.getElementById("loginusername").value;
+            var pwinput = document.getElementById("loginpassword").value;
+            if(usernameinput === username && pwinput === password){
+                var link = document.createElement('a');
+                link.className = 'mdl-button mdl-js-button mdl-button--raised';
+                link.href = 'uebersicht.html';
+                link.textContent = 'WELCOME';
+                
+                var button = document.getElementById('loginbutton');
+                button.parentNode.replaceChild(link, button);
+            }
         }
-        verifycounter++;
-    }
-    
-    function getPW(){
-        var pwinput = document.getElementById("loginpassword").value;
-        if(pwinput !== password){
-            return;
-        }
-        verifycounter++;
-    }
-
-    function verify(){
-        if(verifycounter === 2){
-            var link = document.createElement('a');
-            link.className = 'mdl-button mdl-js-button mdl-button--raised';
-            link.href = 'uebersicht.html';
-            link.textContent = 'WELCOME';
-            var button = document.getElementById('loginbutton');
-            button.removeChild('button');
-            document.getElementById('linkContainer').appendChild(link);
-        }
-        verifycounter = 0; // Zurücksetzen des Zählers
-    }
-</script>
-
+    </script>
 </body>
 </html>
