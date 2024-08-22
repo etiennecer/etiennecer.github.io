@@ -41,13 +41,15 @@
             <div class="page-content">
                 <div class="demo-card-square mdl-card mdl-shadow--2dp">
                     <form onsubmit="event.preventDefault(); verify();">
+                        <!--
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="text" id="loginusername">
                             <label class="mdl-textfield__label" for="loginusername">enter username</label>
                         </div>
+                        -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="password" id="loginpassword">
-                            <label class="mdl-textfield__label" for="loginpassword">enter password</label>
+                            <label class="mdl-textfield__label" for="loginpassword">Deine Handy PIN</label>
                         </div>
                         <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
                             Confirm
@@ -63,7 +65,7 @@
     </div>
     <script>
         const username = "max";
-        const password = "passwort";
+        const password = "231006";
         
         function verify(){
             var usernameinput = document.getElementById("loginusername").value;
