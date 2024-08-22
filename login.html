@@ -67,19 +67,22 @@
 
         const password = "231006";
         
-        function verify(){
-
-            var pwinput = document.getElementById("loginpassword").value;
-            if(pwinput === password){
-                var link = document.createElement('a');
+        function verify() {
+            const pwinput = document.getElementById("loginpassword").value;
+            if (pwinput === password) {
+                const link = document.createElement('a');
                 link.className = 'mdl-button mdl-js-button mdl-button--raised';
                 link.href = 'uebersicht.html';
                 link.textContent = 'WELCOME';
-                
-                var button = document.getElementById('loginbutton');
-                button.parentNode.replaceChild(link, button);
-            }
-        }
+        
+            const button = document.getElementById('loginbutton');
+            button.parentNode.replaceChild(link, button);
+
+            // MDL-Komponente manuell upgraden
+            componentHandler.upgradeElement(link);
+    }
+}
+
     </script>
 </body>
 </html>
